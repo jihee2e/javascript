@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav clearfix">
+        <h1>GREEN</h1>
+        <ul>
+            <li class="active"><a href="#section1">menu1</a></li>
+            <li><a href="#section2">menu2</a></li>
+            <li><a href="#section3">menu3</a></li>
+            <li><a href="#section4">menu4</a></li>
+            <li><a href="#section5">menu5</a></li>
+            <li><a href="#section6">menu6</a></li>
+        </ul>
+       
+    </nav>
+
+    <div id="contents">
+        <div id="section1">
+            <h2>1.특별한 내가 될게
+                손이 가 손이 가게 yeah <br>
+                내게 중독될 텐데
+                까다로운 너도 yeah</h2>
+        </div>
+        <div id="section2">
+            <h2>2.뭐가 널 웃게 하니<br>
+                그게 나였으면 해</h2>
+        </div>
+        <div id="section3">
+            <h2>3.받아줄래 invitation 네 손은 다가와 있어<br>
+                그 체온을 느껴 살짝 녹을 정도만</h2>
+        </div>
+        <div id="section4">
+            <h2>4.Girl, I can't wait anymore
+                네 옆에 내가 있게</h2>
+        </div>
+        <div id="section5">
+            <h2>5.어른스러운 cinnamon, 좀 웃기는 mint 뭘 더 원해</h2>
+        </div>
+        <div id="section6">
+            <h2>6.Got me feeling like
+                Pop rocks, strawberry, bubble gum <br>
+                주머니 속 향기 넘치면 all I want is you my love<br> candy
+                넌 기분 좋아질 텐데</h2>
+        </div>
+    </div>
+    <!-- https://jqueryui.com/ -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+        var nav = $('.nav>ul>li');
+        var cont = $('#contents>div')
+
+        nav.click(function(e){
+            e.preventDefault();
+            var target = $(this);
+            var index = target.index();
+            //console.log(index);
+
+            var section = cont.eq(index);
+            console.log(section); 
+
+            var offset = section.offset().top;
+            console.log(offset) //넘기는거
+
+            // A.animate({실행문},시간)
+            // A.animate({실행문},시간,이징)
+            $('html, body').animate({
+                scrollTop:offset
+            },600,'easeOutBounce')
+        });
+
+        $(window).scroll(function(){//scroll이 발생할때마다 할일
+            var wScroll = $(this).scrollTop(); //$(this)|는 window를 의미
+            console.log(wScroll);
+        
+        if(wScroll <cont.eq(1).offset().top){
+            nav.removeClass('active');
+            nav.eq(0).addClass('active');
+        }else if(wScroll < cont.eq(2).offset().top){
+            nav.removeClass('active');
+            nav.eq(1).addClass('active');
+        }else if(wScroll < cont.eq(3).offset().top){
+            nav.removeClass('active');
+            nav.eq(2).addClass('active');
+        }else if(wScroll < cont.eq(4).offset().top){
+            nav.removeClass('active');
+            nav.eq(3).addClass('active');
+        }else if(wScroll <cont.eq(5).offset().top){
+            nav.removeClass('active');
+            nav.eq(4).addClass('active');
+        }else {
+            nav.removeClass('active');
+            nav.eq(5).addClass('active');
+        }
+
+    });
+
+    /* 메뉴 */
+    var header = $('.nav');
+    var hearderOffset = header.offset().top; //문서전체에서 .nav의 위쪽의 높이값
+
+    $(window).scroll(function(){
+        var wScroll = $(this).scrollTop();//scroll의 높이값
+
+        if(wScroll>hearderOffset){
+            header.addClass('on')
+        }else{
+            header.removeClass('on')
+        }
+    
+    });
+    </script>
+
+</body>
+</html>
