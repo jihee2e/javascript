@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*  함수
+        함수는 하나의 실행문을 저장하고 변수는 하나의 데이터를 저장하여
+        사용합니다.
+        함수는 스크립트 실행문을 보관하기 역할을 하기 때문에 반복 되는
+        코드를 구조화하거나 재활용을 목적으로 사용합니다. */
+
+  /*       함수에서 사용되는 용어
+        매개변수:함수에 자료를 넘기기 위해 사용되는 변수 \
+                =인자(parameter) 파라메타
+        리턴값 : 함수를 실행하고 나는 결과값
+        콜백함수 : 함수에 매개변수를 함수를 전달할때 사용하는 함수
+        호출: 함수를실행시킬때 호출이라고 표현
+        인수(argument)-아큐먼트: 함수를 호출될때 함수로 값을 전달해주는 변수를 가리킨다 */
+
+
+      /*   for(초기값; 조건문; 증가감식){
+            조건문이 만족하는 동안 실행문
+        } */
+
+/*         for( var i=1; i<=4; i++){
+            document.write('이것은 빨간색' + i + '입니다.<br>')
+        }
+
+        for( var i=1; i<=4; i++){
+            document.write('이것은 파란색' + i + '입니다.<br>')
+        }
+        
+        for( var i=1; i<=4; i++){
+            document.write('이것은 검정색' + i + '입니다.<br>')
+        }
+        
+        document.write("---------------------------------------<br>")
+
+
+
+        function 칼라만들기(color){ //color는 매개변수임//인자
+            for(var i = 1; i<=4; i++){
+            document.write('이것은' + color + i + '입니다.<br>')
+        }}
+
+        칼라만들기("빨간색"); //"빨간색" 인수(argument)//호출
+        칼라만들기("파란색"); //호출
+        칼라만들기("검정색"); //호출
+
+
+        function 커피만들기(재료){
+            for(var i=1; i<=4; i++){
+                document.write('이것은' + 재료 + i + '입니다.<br>')
+        }}
+            
+        커피만들기('흙'); */
+
+        for(var i=1; i<=4; i++){
+            document.write('이것은 빨간색' + i + '입니다.<br>')
+        }
+
+        for(var i=1; i<=4; i++){
+            document.write('이것은 파란색' + i + '입니다.<br>')
+        }
+
+        for(var i=1; i<=4; i++){
+            document.write('이것은 검정색' + i + '입니다.<br>')
+        }
+
+        function 칼라만들기(color){
+            for(var i=1; i<=4; i++){
+                document.write('이것은' + color + i + '입니다.<br>')
+            }
+        }
+        document.write("<br>---------------------------------------<br>")
+
+      /*   선언적함수
+        가장 기본적으로 사용하는 함수의 형태입니다.
+        함수이름을 설정하고 그 함수 이름을 호출해서 실행이 됩니다. */
+      /*   function 함수이름(){
+            함수 실행문
+        }
+
+        함수이름(); //호출이 일어나야 실행됨
+ */
+
+        function 박함수(){
+            document.write('박함수입니다');
+        }
+
+        박함수();
+        document.write("<br>---------------------------------------<br>")
+
+
+        function 함수쌍둥이(){
+            document.write("함수쌍둥이1 입니다.")
+        }
+        //동일한 함수가 있는 경우에는 뒤에있는 함수가 호출됩니다.
+        function 함수쌍둥이(){
+            document.write("함수쌍둥이2 입니다.")
+        }
+
+
+        함수쌍둥이();
+
+        document.write("<br>---------------------------------------<br>")
+
+        //더하기예제
+
+        function 더하기(a, b){
+            document.write('더하기:' + (a + b))
+        }
+
+        더하기(4, 7);
+
+
+        function 빼기(b, c){
+            document.write('빼기:' + (b - c))
+           document.write(`빼기:${(b - c)}`)
+        }
+        빼기(9,4);
+        document.write("<br>---------------------------------------<br>")
+
+        배달민족('경성대 1002호')
+        function 배달민족(location){
+            // document.write('여기는' + location + "입니다. 짜장면 2개 부탁드려요");
+            document.write(`여기는 ${location} 입니다. 짜장면 2개 부탁드려요`);
+        }
+        //배달민족('경성대 1002호')
+
+        document.write("<br>---------------------------------------<br>")
+
+        // 익명함수
+        // 함수에 이름이 없기때문에 변수에 넣어서 사용하는 함수입니다.
+
+
+        //익명함수(); //변수선언 위쪽에서 함수호출이 안됩니다.
+      
+        var 익명함수 = function(){
+            document.write("나는 이름이 없어요")
+    }
+
+        익명함수();
+
+        document.write("<br>---------------------------------------<br>")
+        // 리턴값이 있는 함수
+        //리턴문(return)을 이용한 매개변수가 있는 함수 예제입니다.
+        //리턴값이 있는 함수란
+        //결과 값이 있는 함수를 말한다. return이라는 키워드를 이용하여
+        //함수의 결과값을 출력하는 방법입니다. 
+        //리턴은 실행문을 강제로 종료하는 역할도 합니다
+
+        function 리턴문(num){
+            return num + num; 
+        }
+
+        //document.write(리턴문(3));
+        var 값출력 = 리턴문(3);
+        document.write(값출력);
+
+
+        document.write("<br>---------------------------------------<br>")
+
+        //예제 리턴문 10,20 더하기
+        function 리턴문2(num1, num2){
+            return num1 + num2;
+        }
+
+         document.write(리턴문2(10, 20));
+
+         document.write("<br>---------------------------------------<br>")
+
+         function 리턴3(){
+             var str = '리턴값을 실행합니다';
+             return str;
+         }
+         var 변수 = 리턴3();
+         document.write(리턴3());
+         document.write("<br>---------------------------------------<br>")
+         document.write(변수);
+         document.write("<br>---------------------------------------<br>")
+
+         //종료역할을 하는 리턴문
+
+         function 종료(){
+             document.write("1.함수가 실행됩니다.")
+             return; //종료함수를 종료
+             document.write("2.함수가 실행됩니다.")
+         }
+
+        종료();
+
+        //재귀함수
+        //함수내에서 자신을 다시 호출하는 함수를 말합니다.
+        //함수를 반복문처럼 사용할때 이용합니다.
+
+       /*  function 재귀(num){
+            document.write("재귀함수");
+            재귀();
+        }
+        재귀(); */
+
+        function 재귀함수(num){
+            if(num == 0){
+                document.write("함수의 실행을 완료합니다.<br>")
+            }else{
+                document.write("함수의 실행합니다.<br>")
+                재귀함수(num - 1)
+            }
+        }
+
+        재귀함수(5);
+
+        //콜백함수
+        //함수를 변수에 저장하고 변수를 함수의 인자로 사용하게
+        //매개변수에 전달하는 함수입니다.
+
+        function 콜백함수(){
+            for(var i=1; i<=3 ; i++){
+                num(i);
+            }
+        }
+
+        var 인자변수 = function 인자(){
+            document.write("콜백함수를 실행합니다.<br>")
+
+        }    
+        콜백함수(인자변수);
+
+        //내부함수
+        //함수내에 함수를 선언하는 함수를 말합니다
+
+        function 외부함수(){
+            function 내부함수(){
+                document.write("내부함수를 출력합니다.");
+            }
+            내부함수()
+        }
+
+        외부함수();
+            
+</script>
+</body>
+</html>
